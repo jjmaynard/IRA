@@ -86,7 +86,7 @@ url$query <- list(where = "1=1",
 request <- build_url(url)
 
 ceap <- st_read(request)
-
+ceap <- st_crop(ceap, mlra)
 
 ```
 
@@ -109,6 +109,16 @@ ltar_site  <- ltar_site  |> st_transform(crs=st_crs(ceap))
 
 # State/MLRA Boundary
 ```{r}
+#wfs_mlra <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/US_MLRA/FeatureServer'
+url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+url$path <- paste(url$path, "US_MLRA/FeatureServer/0/query", sep = "/")
+url$query <- list(where = "1=1",
+                  outFields = "*",
+                  returnGeometry = "true",
+                  f = "geojson")
+request <- build_url(url)
+mlra <- st_read(request)
+
 #wfs_states <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/USA_States_Generalized/FeatureServer'
 url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
 url$path <- paste(url$path, "USA_States_Generalized/FeatureServer/0/query", sep = "/")
@@ -120,15 +130,7 @@ request <- build_url(url)
 states <- st_read(request)
 states <- st_crop(states, mlra)
 
-#wfs_mlra <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/US_MLRA/FeatureServer'
-url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
-url$path <- paste(url$path, "US_MLRA/FeatureServer/0/query", sep = "/")
-url$query <- list(where = "1=1",
-                  outFields = "*",
-                  returnGeometry = "true",
-                  f = "geojson")
-request <- build_url(url)
-mlra <- st_read(request)
+
 ```
 
 # mapping
@@ -176,12 +178,18 @@ tmap_mode("view")
     tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE) +
     tm_view(set.view = c(-99.22, 39.13,  4))
 
+  
+# render plot
 tmap_mode("plot")
-  tm_shape(states) +
+library(maptiles)
+ei_tiles = get_tiles(ceap, provider = "Stamen.TonerLite", zoom = 4, crop = FALSE)
+IRA_map <-   tm_shape(ei_tiles) + 
+    tm_rgb() +
+    tm_shape(states) +
     tm_borders() +
     tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
-    tm_shape(pedon) +
-    tm_symbols(shape = 21, col='#7570B3', size=0.02) +
+    #tm_shape(pedon) +
+    #tm_symbols(shape = 21, col='#7570B3', size=0.02) +
     tm_shape(raca_gen_loc) +
     tm_symbols(shape = 19, col='#E7298A', size=0.02) +
     tm_shape(ceap) +
@@ -189,33 +197,21 @@ tmap_mode("plot")
     tm_symbols(shape = 24, col='#1B9E77', size=0.3) +
     tm_shape(ltar_site) +
     tm_symbols(shape = 23, col='#D95F02', size=0.3) +
-    #tm_compass() + 
-    #tm_scale_bar(position = c(0.06, 0.05)) +
-    tm_add_legend('symbol', shape=c(19,24,23,21), 
-	col = c( '#E7298A','#1B9E77', '#D95F02','#7570B3'),
+    tm_compass() + 
+    tm_scale_bar(position = c(0.06, 0.05)) +
+    tm_add_legend('symbol', shape=c(19,24,23), 
+	col = c( '#E7298A','#1B9E77', '#D95F02'),
 	border.col = "grey40",
 	size = 1,
-	labels = c('RacA','CEAP','LTAR','KSSL'),
-	title="Potential Sampling Areas") +
-    tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE) 
+	labels = c('RacA','CEAP','LTAR'),
+	title="Potential Monitoring Locations") +
+    tm_layout(main.title = "IRA SOC Monitoring", bg.color = "white", legend.outside = TRUE) +
+    tm_view(set.view = c(-99.22, 39.13,  4))
 
-    
-    
-  tm_raster(style = "cont", palette = "-RdYlGn",
-            title = "Elevation (m asl)") +
-  tm_shape(ei_borders) + 
-  tm_borders() +
-  tm_shape(ei_roads) + 
-  tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
-  tm_shape(volcanoes) +
-  tm_symbols(shape = 24, size = "elevation",
-             title.size = "Volcanoes (m asl)") +
-  tm_layout(main.title = "Easter Island",
-            bg.color = "white", legend.outside = TRUE)
-  
-  
-  
-   tm_compass(position = c(0.06, 0.45), color.light = "gray90",
-size = 3)
+tmap_save(IRA_map, here("report/figures/IRA_SOC_Monitoring_map.png"), width=3000, height=1400, asp=0)    
+
+
+
+
 ```
 

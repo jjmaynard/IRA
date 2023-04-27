@@ -26,8 +26,8 @@ tmap_mode("view")
     tm_fill(col="#1B9E77", size=0.3) +
     tm_shape(ltar_site) +
     tm_dots(col="#D95F02", size=0.3) +
-    tm_shape(pedon) +
-    tm_dots(col="#7570B3", size=0.02) +
+    #tm_shape(pedon) +
+    #tm_dots(col="#7570B3", size=0.02) +
     tm_shape(raca_gen_loc) +
     tm_dots(col="#E7298A", size=0.02) +
 
@@ -37,7 +37,7 @@ tmap_mode("view")
 	col = c( "#E7298A","#1B9E77", "#D95F02","#7570B3"),
 	border.col = "grey40",
 	size = 1,
-	labels = c('RaCA','CEAP','LTAR','KSSL (>2010)'),
+	labels = c('RaCA','CEAP','LTAR'),
 	title="Potential Sampling Areas") +
     tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE)  +
     tm_view(set.view = c(-99.22, 39.13,  5))
