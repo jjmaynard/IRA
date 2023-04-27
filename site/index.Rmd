@@ -1,11 +1,45 @@
 ---
-title: "Home"
-site: workflowr::wflow_site
-output:
-  workflowr::wflow_html:
-    toc: false
-editor_options:
-  chunk_output_type: console
+title: "IRA SOC Monitoring"
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: fill
 ---
 
-Welcome to my research website.
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+## #Column {data-width="650"}
+
+### Potential Monitoring Locations
+
+```{r}
+library(here)
+library(tmap)
+load(here('data/derived_data/IRA_sites.Rdata'))
+tmap_mode("view")
+  tm_shape(states) +
+    tm_borders() +
+    tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
+    tm_shape(ceap) +
+    tm_borders() +
+    tm_fill(col="#1B9E77", size=0.3) +
+    tm_shape(ltar_site) +
+    tm_dots(col="#D95F02", size=0.3) +
+    tm_shape(pedon) +
+    tm_dots(col="#7570B3", size=0.02) +
+    tm_shape(raca_gen_loc) +
+    tm_dots(col="#E7298A", size=0.02) +
+
+    #tm_compass() + 
+    #tm_scale_bar(position = c(0.06, 0.05)) +
+    tm_add_legend('fill', 
+	col = c( "#E7298A","#1B9E77", "#D95F02","#7570B3"),
+	border.col = "grey40",
+	size = 1,
+	labels = c('RaCA','CEAP','LTAR','KSSL (>2010)'),
+	title="Potential Sampling Areas") +
+    tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE)  +
+    tm_view(set.view = c(-99.22, 39.13,  5))
+```
+
