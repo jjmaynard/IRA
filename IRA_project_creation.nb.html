@@ -1791,10 +1791,19 @@ wflr_path &lt;- paste0(path, &quot;/&quot;, wflr_name)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShycnRvb2xzKVxubGlicmFyeSh3b3JrZmxvd3IpXG5gYGAifQ== -->
-<pre class="r"><code>library(rrtools)
-library(workflowr)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShycnRvb2xzKVxuYGBgIn0= -->
+<pre class="r"><code>library(rrtools)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoi4pyUIEdpdCBpcyBpbnN0YWxsZWQgb24gdGhpcyBjb21wdXRlciwgeW91ciB1c2VybmFtZSBpcyBqam1heW5hcmRcbiJ9 -->
+<pre><code>✔ Git is installed on this computer, your username is jjmaynard</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh3b3JrZmxvd3IpXG5gYGAifQ== -->
+<pre class="r"><code>library(workflowr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogcGFja2FnZSDigJh3b3JrZmxvd3LigJkgd2FzIGJ1aWx0IHVuZGVyIFIgdmVyc2lvbiA0LjIuM1RoaXMgaXMgd29ya2Zsb3dyIHZlcnNpb24gMS43LjBcblJ1biA/d29ya2Zsb3dyIGZvciBoZWxwIGdldHRpbmcgc3RhcnRlZFxuIn0= -->
+<pre><code>Warning: package ‘workflowr’ was built under R version 4.2.3This is workflowr version 1.7.0
+Run ?workflowr for help getting started</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1802,25 +1811,13 @@ library(workflowr)</code></pre>
 <h1>Add auth_token for project</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI3NldHdkKHBhdGgpXG5ycnRvb2xzOjp1c2VfY29tcGVuZGl1bShuYW1lKVxudXNldGhpczo6dXNlX21pdF9saWNlbnNlKG5hbWUgPSBcIkpvbmF0aGFuIEogTWF5bmFyZFwiKVxudXNldGhpczo6dXNlX2dpdCgpXG5cbiNDcmVhdGUgZ2l0aHViIOKAmHJlcG/igJkgdG9rZW4gZm9yIOKAnG15cHJvamVjdOKAnVxuIyBjcmVhdGUgdG9rZW5cbnVzZXRoaXM6OmNyZWF0ZV9naXRodWJfdG9rZW4oKVxuIyBzZXQgdG9rZW4gaW4gc3RvcmFnZVxuZ2l0Y3JlZHM6OmdpdGNyZWRzX3NldCgpXG51c2V0aGlzOjp1c2VfZ2l0aHViKHByb3RvY29sID0gXCJodHRwc1wiLCBwcml2YXRlID0gRkFMU0UpXG5cbnJydG9vbHM6OnVzZV9yZWFkbWVfcm1kKHBrZyA9IHBhdGgsIHJlbmRlcl9yZWFkbWUgPSBUUlVFKVxucnJ0b29sczo6dXNlX2FuYWx5c2lzKHBhdGgpXG4jcmVuYW1lIHRoZSDigJhhbmFseXNpc+KAmSBmb2xkZXIgdG8g4oCYcmVwb3J04oCZXG5ycnRvb2xzOjp1c2VfZG9ja2VyZmlsZShwYXRoKVxucnJ0b29sczo6dXNlX3RyYXZpcyhwYXRoKVxuYGBgIn0= -->
-<pre class="r"><code>#setwd(path)
-rrtools::use_compendium(name)
-usethis::use_mit_license(name = &quot;Jonathan J Maynard&quot;)
-usethis::use_git()
-
-#Create github ‘repo’ token for “myproject”
-# create token
-usethis::create_github_token()
-# set token in storage
-gitcreds::gitcreds_set()
-usethis::use_github(protocol = &quot;https&quot;, private = FALSE)
-
-rrtools::use_readme_rmd(pkg = path, render_readme = TRUE)
-rrtools::use_analysis(path)
-#rename the ‘analysis’ folder to ‘report’
-rrtools::use_dockerfile(path)
-rrtools::use_travis(path)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucnJ0b29sczo6dXNlX3RyYXZpcyhwYXRoKVxuXG5gYGAifQ== -->
+<pre class="r"><code>rrtools::use_travis(path)
+</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6ICd1c2VfdHJhdmlzJyBpcyBub3QgYW4gZXhwb3J0ZWQgb2JqZWN0IGZyb20gJ25hbWVzcGFjZTpycnRvb2xzJ1xuIn0= -->
+<pre><code>Error: &#39;use_travis&#39; is not an exported object from &#39;namespace:rrtools&#39;</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1828,12 +1825,51 @@ rrtools::use_travis(path)</code></pre>
 <h1>Run workflowr code as chunk</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1J1biDigJh3b3JrZmxvd3LigJkgY29kZSB0byBjcmVhdGUgcmVzZWFyY2ggd2Vic2l0ZVxud2Zsb3dfc3RhcnQod2Zscl9wYXRoLCBnaXQgPSBGQUxTRSlcbndmbG93X2J1aWxkKCkgI3RvIGJ1aWxkICB3ZWJzaXRlXG53Zmxvd192aWV3KCkgICN2aWV3IHdlYnNpdGVcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1J1biDigJh3b3JrZmxvd3LigJkgY29kZSB0byBjcmVhdGUgcmVzZWFyY2ggd2Vic2l0ZVxud2Zsb3dfc3RhcnQod2Zscl9wYXRoLCBnaXQgPSBGQUxTRSlcbmBgYCJ9 -->
 <pre class="r"><code>#Run ‘workflowr’ code to create research website
-wflow_start(wflr_path, git = FALSE)
-wflow_build() #to build  website
-wflow_view()  #view website</code></pre>
+wflow_start(wflr_path, git = FALSE)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoid2Zsb3dfc3RhcnQ6XG4tIE5ldyBkaXJlY3RvcnkgY3JlYXRlZCBhdCBDOi9SX0RyaXZlL0RhdGFfRmlsZXMvTFBLU19EYXRhL1JfUHJvamVjdHMvSVJBL0lSQV9zaXRlXG4tIFByb2plY3QgbmFtZSBpcyBcIklSQV9zaXRlXCJcbi0gV29ya2luZyBkaXJlY3RvcnkgY2hhbmdlZCB0byBDOi9SX0RyaXZlL0RhdGFfRmlsZXMvTFBLU19EYXRhL1JfUHJvamVjdHMvSVJBL0lSQV9zaXRlXG4tIEdpdCByZXBvIGFscmVhZHkgcHJlc2VudCBhdCBDOi9SX0RyaXZlL0RhdGFfRmlsZXMvTFBLU19EYXRhL1JfUHJvamVjdHMvSVJBXG4ifQ== -->
+<pre><code>wflow_start:
+- New directory created at C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site
+- Project name is &quot;IRA_site&quot;
+- Working directory changed to C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site
+- Git repo already present at C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogVGhlIHdvcmtpbmcgZGlyZWN0b3J5IHdhcyBjaGFuZ2VkIHRvIEM6L1JfRHJpdmUvRGF0YV9GaWxlcy9MUEtTX0RhdGEvUl9Qcm9qZWN0cy9JUkEvSVJBX3NpdGUgaW5zaWRlIGEgbm90ZWJvb2sgY2h1bmsuIFRoZSB3b3JraW5nIGRpcmVjdG9yeSB3aWxsIGJlIHJlc2V0IHdoZW4gdGhlIGNodW5rIGlzIGZpbmlzaGVkIHJ1bm5pbmcuIFVzZSB0aGUga25pdHIgcm9vdC5kaXIgb3B0aW9uIGluIHRoZSBzZXR1cCBjaHVuayB0byBjaGFuZ2UgdGhlIHdvcmtpbmcgZGlyZWN0b3J5IGZvciBub3RlYm9vayBjaHVua3MuXG4ifQ== -->
+<pre><code>Warning: The working directory was changed to C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2Zsb3dfYnVpbGQoKSAjdG8gYnVpbGQgIHdlYnNpdGVcbmBgYCJ9 -->
+<pre class="r"><code>wflow_build() #to build  website</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ3VycmVudCB3b3JraW5nIGRpcmVjdG9yeTogQzovUl9Ecml2ZS9EYXRhX0ZpbGVzL0xQS1NfRGF0YS9SX1Byb2plY3RzL0lSQS9JUkFfc2l0ZVxuQnVpbGRpbmcgMyBmaWxlKHMpOlxuQnVpbGRpbmcgYW5hbHlzaXMvYWJvdXQuUm1kXG5CdWlsZGluZyBhbmFseXNpcy9pbmRleC5SbWRcbkJ1aWxkaW5nIGFuYWx5c2lzL2xpY2Vuc2UuUm1kXG4ifQ== -->
+<pre><code>Current working directory: C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site
+Building 3 file(s):
+Building analysis/about.Rmd
+Building analysis/index.Rmd
+Building analysis/license.Rmd</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU3VtbWFyeSBmcm9tIHdmbG93X2J1aWxkXG5cblNldHRpbmdzOlxuIG1ha2U6IFRSVUUgY29tYmluZTogXCJvclwiXG5cblRoZSBmb2xsb3dpbmcgd2VyZSBidWlsdCBleHRlcm5hbGx5IGVhY2ggaW4gdGhlaXIgb3duIGZyZXNoIFIgc2Vzc2lvbjogXG5cbmRvY3MvYWJvdXQuaHRtbFxuZG9jcy9pbmRleC5odG1sXG5kb2NzL2xpY2Vuc2UuaHRtbFxuXG5Mb2cgZmlsZXMgc2F2ZWQgaW4gQzovVXNlcnMvam1heW5hcmQvQXBwRGF0YS9Mb2NhbC9UZW1wL1J0bXA2dlJvbXUvd29ya2Zsb3dyXG4ifQ== -->
+<pre><code>Summary from wflow_build
+
+Settings:
+ make: TRUE combine: &quot;or&quot;
+
+The following were built externally each in their own fresh R session: 
+
+docs/about.html
+docs/index.html
+docs/license.html
+
+Log files saved in C:/Users/jmaynard/AppData/Local/Temp/Rtmp6vRomu/workflowr</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2Zsb3dfdmlldygpICAjdmlldyB3ZWJzaXRlXG5gYGAifQ== -->
+<pre class="r"><code>wflow_view()  #view website</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoid2Zsb3dfdmlldyBvcGVuZWQ6XG4tIGRvY3MvaW5kZXguaHRtbFxuIn0= -->
+<pre><code>wflow_view opened:
+- docs/index.html</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -1849,70 +1885,189 @@ wflow_view()  #view website</code></pre>
 <h1>Run workflowr code as chunk</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2Qod2Zscl9wYXRoKVxud2Zsb3dfcHVibGlzaChjKFwic2l0ZS9pbmRleC5SbWRcIiwgXCJzaXRlL2NvZGUuUm1kXCIsIFwic2l0ZS9kYXRhLlJtZFwiLCBcInNpdGUvbGljZW5zZS5SbWRcIiksIFwiUHVibGlzaCB0aGUgaW5pdGlhbCBmaWxlcyBmb3IgbXlwcm9qZWN0XCIpXG53Zmxvd19zdGF0dXMoKSAjdG8gY2hlY2sgaWYgZG9jcyBoYXZlIGJlZW4gcHVibGlzaGVkXG5gYGAifQ== -->
-<pre class="r"><code>setwd(wflr_path)
-wflow_publish(c(&quot;site/index.Rmd&quot;, &quot;site/code.Rmd&quot;, &quot;site/data.Rmd&quot;, &quot;site/license.Rmd&quot;), &quot;Publish the initial files for myproject&quot;)
-wflow_status() #to check if docs have been published</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2Qod2Zscl9wYXRoKVxuYGBgIn0= -->
+<pre class="r"><code>setwd(wflr_path)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogVGhlIHdvcmtpbmcgZGlyZWN0b3J5IHdhcyBjaGFuZ2VkIHRvIEM6L1JfRHJpdmUvRGF0YV9GaWxlcy9MUEtTX0RhdGEvUl9Qcm9qZWN0cy9JUkEvSVJBX3NpdGUgaW5zaWRlIGEgbm90ZWJvb2sgY2h1bmsuIFRoZSB3b3JraW5nIGRpcmVjdG9yeSB3aWxsIGJlIHJlc2V0IHdoZW4gdGhlIGNodW5rIGlzIGZpbmlzaGVkIHJ1bm5pbmcuIFVzZSB0aGUga25pdHIgcm9vdC5kaXIgb3B0aW9uIGluIHRoZSBzZXR1cCBjaHVuayB0byBjaGFuZ2UgdGhlIHdvcmtpbmcgZGlyZWN0b3J5IGZvciBub3RlYm9vayBjaHVua3MuXG4ifQ== -->
+<pre><code>Warning: The working directory was changed to C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2Zsb3dfcHVibGlzaChjKFwic2l0ZS9pbmRleC5SbWRcIiwgXCJzaXRlL2NvZGUuUm1kXCIsIFwic2l0ZS9kYXRhLlJtZFwiLCBcInNpdGUvbGljZW5zZS5SbWRcIiksIFwiUHVibGlzaCB0aGUgaW5pdGlhbCBmaWxlcyBmb3IgbXlwcm9qZWN0XCIpXG5gYGAifQ== -->
+<pre class="r"><code>wflow_publish(c(&quot;site/index.Rmd&quot;, &quot;site/code.Rmd&quot;, &quot;site/data.Rmd&quot;, &quot;site/license.Rmd&quot;), &quot;Publish the initial files for myproject&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiQ3VycmVudCB3b3JraW5nIGRpcmVjdG9yeTogQzovUl9Ecml2ZS9EYXRhX0ZpbGVzL0xQS1NfRGF0YS9SX1Byb2plY3RzL0lSQS9JUkFfc2l0ZVxuQnVpbGRpbmcgNCBmaWxlKHMpOlxuQnVpbGRpbmcgc2l0ZS9pbmRleC5SbWRcbkJ1aWxkaW5nIHNpdGUvY29kZS5SbWRcbkJ1aWxkaW5nIHNpdGUvZGF0YS5SbWRcbkJ1aWxkaW5nIHNpdGUvbGljZW5zZS5SbWRcbiJ9 -->
+<pre><code>Current working directory: C:/R_Drive/Data_Files/LPKS_Data/R_Projects/IRA/IRA_site
+Building 4 file(s):
+Building site/index.Rmd
+Building site/code.Rmd
+Building site/data.Rmd
+Building site/license.Rmd</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU3VtbWFyeSBmcm9tIHdmbG93X3B1Ymxpc2hcblxuKipTdGVwIDE6IENvbW1pdCBhbmFseXNpcyBmaWxlcyoqXG5cbk5vIGZpbGVzIHRvIGNvbW1pdFxuXG5cbioqU3RlcCAyOiBCdWlsZCBIVE1MIGZpbGVzKipcblxuU3VtbWFyeSBmcm9tIHdmbG93X2J1aWxkXG5cblNldHRpbmdzOlxuIGNvbWJpbmU6IFwib3JcIiBjbGVhbl9maWdfZmlsZXM6IFRSVUVcblxuVGhlIGZvbGxvd2luZyB3ZXJlIGJ1aWx0IGV4dGVybmFsbHkgZWFjaCBpbiB0aGVpciBvd24gZnJlc2ggUiBzZXNzaW9uOiBcblxuZG9jcy9pbmRleC5odG1sXG5kb2NzL2NvZGUuaHRtbFxuZG9jcy9kYXRhLmh0bWxcbmRvY3MvbGljZW5zZS5odG1sXG5cbkxvZyBmaWxlcyBzYXZlZCBpbiBDOlxcVXNlcnNcXGptYXluYXJkXFxBcHBEYXRhXFxMb2NhbFxcVGVtcFxcUnRtcDZ2Um9tdS93b3JrZmxvd3JcblxuKipTdGVwIDM6IENvbW1pdCBIVE1MIGZpbGVzKipcblxuU3VtbWFyeSBmcm9tIHdmbG93X2dpdF9jb21taXRcblxuVGhlIGZvbGxvd2luZyB3YXMgcnVuOiBcblxuICAkIGdpdCBhZGQgZG9jcy9pbmRleC5odG1sIGRvY3MvY29kZS5odG1sIGRvY3MvZGF0YS5odG1sIGRvY3MvbGljZW5zZS5odG1sIGRvY3MvZmlndXJlL2luZGV4LlJtZCBkb2NzL2ZpZ3VyZS9jb2RlLlJtZCBkb2NzL2ZpZ3VyZS9kYXRhLlJtZCBkb2NzL2ZpZ3VyZS9saWNlbnNlLlJtZCBkb2NzL3NpdGVfbGlicyBkb2NzLy5ub2pla3lsbCBcbiAgJCBnaXQgY29tbWl0IC1tIFwiQnVpbGQgc2l0ZS5cIiBcblxuVGhlIGZvbGxvd2luZyBmaWxlKHMpIHdlcmUgaW5jbHVkZWQgaW4gY29tbWl0IDYzMTcyNzg6XG5kb2NzLy5ub2pla3lsbFxuZG9jcy9jb2RlLmh0bWxcbmRvY3MvZGF0YS5odG1sXG5kb2NzL2luZGV4Lmh0bWxcbmRvY3MvbGljZW5zZS5odG1sXG5kb2NzL3NpdGVfbGlicy9ib290c3RyYXAtMy4zLjUvXG5kb2NzL3NpdGVfbGlicy9oZWFkZXItYXR0cnMtMi4yMS9cbmRvY3Mvc2l0ZV9saWJzL2hpZ2hsaWdodGpzLTkuMTIuMC9cbmRvY3Mvc2l0ZV9saWJzL2pxdWVyeS0zLjYuMC9cbmRvY3Mvc2l0ZV9saWJzL25hdmlnYXRpb24tMS4xL1xuIn0= -->
+<pre><code>Summary from wflow_publish
+
+**Step 1: Commit analysis files**
+
+No files to commit
+
+
+**Step 2: Build HTML files**
+
+Summary from wflow_build
+
+Settings:
+ combine: &quot;or&quot; clean_fig_files: TRUE
+
+The following were built externally each in their own fresh R session: 
+
+docs/index.html
+docs/code.html
+docs/data.html
+docs/license.html
+
+Log files saved in C:\Users\jmaynard\AppData\Local\Temp\Rtmp6vRomu/workflowr
+
+**Step 3: Commit HTML files**
+
+Summary from wflow_git_commit
+
+The following was run: 
+
+  $ git add docs/index.html docs/code.html docs/data.html docs/license.html docs/figure/index.Rmd docs/figure/code.Rmd docs/figure/data.Rmd docs/figure/license.Rmd docs/site_libs docs/.nojekyll 
+  $ git commit -m &quot;Build site.&quot; 
+
+The following file(s) were included in commit 6317278:
+docs/.nojekyll
+docs/code.html
+docs/data.html
+docs/index.html
+docs/license.html
+docs/site_libs/bootstrap-3.3.5/
+docs/site_libs/header-attrs-2.21/
+docs/site_libs/highlightjs-9.12.0/
+docs/site_libs/jquery-3.6.0/
+docs/site_libs/navigation-1.1/</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud2Zsb3dfc3RhdHVzKCkgI3RvIGNoZWNrIGlmIGRvY3MgaGF2ZSBiZWVuIHB1Ymxpc2hlZFxuYGBgIn0= -->
+<pre class="r"><code>wflow_status() #to check if docs have been published</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogVGhlIGZvbGxvd2luZyBSIE1hcmtkb3duIGZpbGUocykgaGF2ZSBub3QgYmVlbiBjb21taXR0ZWQgdG8gdGhlIEdpdCByZXBvc2l0b3J5IGJ1dCB0aGVpclxuY29ycmVzcG9uZGluZyBIVE1MIGZpbGUocykgaGF2ZS4gVGhpcyB2aW9sYXRlcyB0aGUgcmVwcm9kdWNpYmlsaXR5IGd1YXJhbnRlZSBvZiB3b3JrZmxvd3IuXG5QbGVhc2UgcHVibGlzaCB0aGVzZSBmaWxlcyB1c2luZyB3Zmxvd19wdWJsaXNoKCkgdG8gZml4IHRoaXMgc2l0dWF0aW9uLlxuXG5zaXRlL2NvZGUuUm1kXG5zaXRlL2RhdGEuUm1kXG5zaXRlL2luZGV4LlJtZFxuc2l0ZS9saWNlbnNlLlJtZFxuIn0= -->
+<pre><code>Warning: The following R Markdown file(s) have not been committed to the Git repository but their
+corresponding HTML file(s) have. This violates the reproducibility guarantee of workflowr.
+Please publish these files using wflow_publish() to fix this situation.
+
+site/code.Rmd
+site/data.Rmd
+site/index.Rmd
+site/license.Rmd</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiU3RhdHVzIG9mIDQgUm1kIGZpbGVzXG5cblRvdGFsczpcbiA0IFVucHVibGlzaGVkXG5cblRoZSBmb2xsb3dpbmcgUm1kIGZpbGVzIHJlcXVpcmUgYXR0ZW50aW9uOlxuXG5VbnAgc2l0ZS9jb2RlLlJtZFxuVW5wIHNpdGUvZGF0YS5SbWRcblVucCBzaXRlL2luZGV4LlJtZFxuVW5wIHNpdGUvbGljZW5zZS5SbWRcblxuS2V5OiBVbnAgPSBVbnB1Ymxpc2hlZFxuXG5UaGUgY3VycmVudCBHaXQgc3RhdHVzIGlzOlxuIn0= -->
+<pre><code>Status of 4 Rmd files
+
+Totals:
+ 4 Unpublished
+
+The following Rmd files require attention:
+
+Unp site/code.Rmd
+Unp site/data.Rmd
+Unp site/index.Rmd
+Unp site/license.Rmd
+
+Key: Unp = Unpublished
+
+The current Git status is:</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibnJvdyI6MjIsIm5jb2wiOjMsInN1bW1hcnkiOnsiRGVzY3JpcHRpb24iOlsiZGYgWzIyIMOXIDNdIl19fSwicmRmIjoiSDRzSUFBQUFBQUFBQnUyVVFXdmJNQlRIVmNmZVpyTmtwWU5jZXRnbmlNYllaZGN1em9vUFM0ZnJRRzlCdHBWRWpTTVpXU0xkclorODNaTmoyWWxoak8weUJqTUlTejg5dmIvK1QwSnhlUGN4dUFzUVFnUGtPZzRhZU5CRjNpTDVNdm1FZ01EZ0RMbklOLzhIQ0hwYlJ5SjBEbTNjVEx6U3ZGSmtUZk0vSFB1YUswbXk3WC93YTlDci9FN2tiTVc2eXY3bStPLzcrWGZBYWVYUE1YNlA0MVN6SW1kckxpUnQrQWg0T0x1ZHh0RzNKTHFaTi9RU2FCUmZMVXNwN21tbWxwbWtSREhCY2J5elN1OStGc0pUdkZHN29na0xqRzdLZUU3bE1Wa3p0ZEZwUTRaQXBqZnpjREZOY0p2LzRnQ1RPUHE4U0tMNWRUZGp3a01CSHVXS0ZkYUhqMlBZeVJFWUdRMmlsR1NwVnJScXhZR2VGc0NZcUppaWRZSjdteTZlWFlWZlo1M29hTGtYY3JzcXhGN2k3NjA3TnhPNVRlVG1SSkdtLzBKb1ZXcGxaMHo2bzgwM3VidGF2dTVneTN4Z2twWkNxdDZ6NW5HeUF6K0g0eDFZUVhpZ2xMWXUvVXFuSjhDdEMzT2F4NWRpajIydUlUVG5FZFhmdUMrWUZhU3lnaFlHeGkxZVNWZ1BvNmZla3BlaU5IY0JGam5tQWZaNmk4OWtEN3pSM093a24yUWJ6YmVURDBhZ25qNjBZZk1mSC9VSEIwbm51VW5sMlVwUXZtYmNsdHNyU0VydGFZM0FjVzBZbDVKeGV6b0IwQW9yb1VoN1p6TlJXRko3UTA4L0FOWnJjRnAzQmdBQSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["status"],"name":[1],"type":["chr"],"align":["left"]},{"label":["substatus"],"name":[2],"type":["chr"],"align":["left"]},{"label":["file"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"unstaged","2":"modified","3":"../.Rbuildignore","_rn_":"1"},{"1":"unstaged","2":"modified","3":"../DESCRIPTION","_rn_":"2"},{"1":"unstaged","2":"modified","3":"../IRA_project_creation.Rmd","_rn_":"3"},{"1":"unstaged","2":"modified","3":"../IRA_project_creation.nb.html","_rn_":"4"},{"1":"untracked","2":"untracked","3":"../.binder","_rn_":"5"},{"1":"untracked","2":"untracked","3":"../.github","_rn_":"6"},{"1":"untracked","2":"untracked","3":"../CONDUCT.md","_rn_":"7"},{"1":"untracked","2":"untracked","3":"../CONTRIBUTING.md","_rn_":"8"},{"1":"untracked","2":"untracked","3":"../Dockerfile","_rn_":"9"},{"1":"untracked","2":"untracked","3":".Rprofile","_rn_":"10"},{"1":"untracked","2":"untracked","3":".gitattributes","_rn_":"11"},{"1":"untracked","2":"untracked","3":".gitignore","_rn_":"12"},{"1":"untracked","2":"untracked","3":"IRA_site.Rproj","_rn_":"13"},{"1":"untracked","2":"untracked","3":"README.md","_rn_":"14"},{"1":"untracked","2":"untracked","3":"_workflowr.yml","_rn_":"15"},{"1":"untracked","2":"untracked","3":"code","_rn_":"16"},{"1":"untracked","2":"untracked","3":"data","_rn_":"17"},{"1":"untracked","2":"untracked","3":"output","_rn_":"18"},{"1":"untracked","2":"untracked","3":"site","_rn_":"19"},{"1":"untracked","2":"untracked","3":"../README.Rmd","_rn_":"20"},{"1":"untracked","2":"untracked","3":"../README.md","_rn_":"21"},{"1":"untracked","2":"untracked","3":"../report","_rn_":"22"}],"options":{"columns":{"min":{},"max":[10],"total":[3]},"rows":{"min":[10],"max":[10],"total":[22]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cblRvIHB1Ymxpc2ggeW91ciBjaGFuZ2VzIGFzIHBhcnQgb2YgeW91ciB3ZWJzaXRlLCB1c2UgYHdmbG93X3B1Ymxpc2goKWAuXG5UbyBjb21taXQgeW91ciBjaGFuZ2VzIHdpdGhvdXQgcHVibGlzaGluZyB0aGVtIHlldCwgdXNlIGB3Zmxvd19naXRfY29tbWl0KClgLlxuXG5UaGUgY29uZmlnIGZpbGUgX3dvcmtmbG93ci55bWwgaGFzIGJlZW4gZWRpdGVkLlxuIn0= -->
+<pre><code>
+
+To publish your changes as part of your website, use `wflow_publish()`.
+To commit your changes without publishing them yet, use `wflow_git_commit()`.
+
+The config file _workflowr.yml has been edited.</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>#Integreate rrtools folder and workflowr folder: Changes to rrtools
-folder (project folder): 1. erase rrtools .gitignore and .profile 2.
-rename analysis folder to ‘results’ 3. move results/data files to data/
-4. erase R/ folder 5. Create ‘proj_setup’ folder and save
-Project_creation.Rmd script in this folder 6. move README.md in /output
-folder to data/derived/ and erase /output</p>
+folder (project folder): 1. erase rrtools .gitignore and .profile 2. 3.
+move report/data files to data/ 4. erase R/ folder 5. Create
+‘proj_setup’ folder and save Project_creation.Rmd script in this
+folder</p>
 <p>Changes to workflowr folder (sub project folder): 1. erase workflowr
 README.Rmd 2. move README.Rmd in data folder to rrtools data folder and
-erase data folder 3. erase workflowr Rproj file 4. move all files from
-workflowr folder to main project folder, then erase workflowr folder 5.
-add ‘proj_setup/’ to .gitignore</p>
+erase data folder 3. erase workflowr Rproj file 4. move README.md in
+/output folder to data/derived/ and erase /output<br />
+5. move all files from workflowr folder to main project folder, then
+erase workflowr folder 6. add ‘proj_setup/’ to .gitignore</p>
 <p>Commit changes with Git and push to GitHub. In Github, set github
 project site to /docs in settings</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2V0d2QocGF0aClcbndmbG93X3B1Ymxpc2goYyhcInNpdGUvaW5kZXguUm1kXCIsIFwic2l0ZS9jb2RlLlJtZFwiLCBcInNpdGUvZGF0YS5SbWRcIiwgXCJzaXRlL2xpY2Vuc2UuUm1kXCIpLCBcIlB1Ymxpc2ggdGhlIGluaXRpYWwgZmlsZXMgZm9yIG15cHJvamVjdFwiKVxud2Zsb3dfc3RhdHVzKCkgI3RvIGNoZWNrIGlmIGRvY3MgaGF2ZSBiZWVuIHB1Ymxpc2hlZFxuYGBgIn0= -->
-<pre class="r"><code>setwd(path)
-wflow_publish(c(&quot;site/index.Rmd&quot;, &quot;site/code.Rmd&quot;, &quot;site/data.Rmd&quot;, &quot;site/license.Rmd&quot;), &quot;Publish the initial files for myproject&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuc2V0d2QocGF0aClcbndmbG93X3B1Ymxpc2goYyhcXHNpdGUvaW5kZXguUm1kXFwsIFxcc2l0ZS9jb2RlLlJtZFxcLCBcXHNpdGUvZGF0YS5SbWRcXCwgXFxzaXRlL2xpY2Vuc2UuUm1kXFwpLCBcXFB1Ymxpc2ggdGhlIGluaXRpYWwgZmlsZXMgZm9yIG15cHJvamVjdFxcKVxud2Zsb3dfc3RhdHVzKCkgI3RvIGNoZWNrIGlmIGRvY3MgaGF2ZSBiZWVuIHB1Ymxpc2hlZFxuYGBgXG5gYGAifQ== -->
+<pre class="r"><code>```r
+setwd(path)
+wflow_publish(c(\site/index.Rmd\, \site/code.Rmd\, \site/data.Rmd\, \site/license.Rmd\), \Publish the initial files for myproject\)
 wflow_status() #to check if docs have been published</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>##Examples for making changes to project website with workflowr</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0NoZWNrIGlmIGFueSBkb2NzIGhhdmUgbm90IHlldCBiZWVuIHB1Ymxpc2hlZFxud2Zsb3dfc3RhdHVzKCkgXG4jIHNpbmdsZSBmaWxlXG53Zmxvd19wdWJsaXNoKFwic2l0ZS9maWxlLlJtZFwiLCBcIkluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlXCIpXG4jIEFsbCB0cmFja2VkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGVkaXRlZFxud2Zsb3dfcHVibGlzaChhbGwgPSBUUlVFLCBtZXNzYWdlID0gXCJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZVwiKVxuIyBBIG5ldyBmaWxlIHBsdXMgYWxsIHRyYWNrZWQgZmlsZXMgdGhhdCBoYXZlIGJlZW4gZWRpdGVkXG53Zmxvd19wdWJsaXNoKFwic2l0ZS9maWxlLlJtZFwiLCBcIkluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlXCIsIGFsbCA9IFRSVUUpXG4jIE11bHRpcGxlIGZpbGVzXG53Zmxvd19wdWJsaXNoKGMoXCJzaXRlL2ZpbGUuUm1kXCIsIFwic2l0ZS9hbm90aGVyLlJtZFwiKSxcbiAgICAgICAgICAgICAgXCJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZVwiKVxuIyBBbGwgUiBNYXJrZG93biBmaWxlcyB0aGF0IHN0YXJ0IHdpdGggdGhlIHBhdHRlcm4gXCJuZXdfXCJcbndmbG93X3B1Ymxpc2goXCJzaXRlL25ld18qUm1kXCIsIFwiSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2VcIilcbiMgUmVwdWJsaXNoIGFsbCBwdWJsaXNoZWQgZmlsZXMgZXZlbiB0aG91Z2ggdGhleSBoYXZlbid0IGJlZW4gbW9kaWZpZWQuXG4jIFVzZWZ1bCBmb3IgY2hhbmdpbmcgc29tZSB1bml2ZXJzYWwgYXNwZWN0IG9mIHRoZSBzaXRlLCBlLmcuIHRoZSB0aGVtZVxuIyBzcGVjaWZpZWQgaW4gX3NpdGUueW1sLlxud2Zsb3dfcHVibGlzaChcInNpdGUvX3NpdGUueW1sXCIsIFwic2l0ZSB1cGRhdGVcIiwgcmVwdWJsaXNoID0gVFJVRSlcbiMgUHVibGlzaCBhbGwgcHJldmlvdXNseSBwdWJsaXNoZWQgZmlsZXMgdGhhdCBoYXZlIGJlZW4gY29tbWl0dGVkIG1vcmVcbiMgcmVjZW50bHkgdGhhbiB0aGVpciBjb3JyZXNwb25kaW5nIEhUTUwgZmlsZXMuIFRoaXMgaXMgdXNlZnVsIGlmIHlvdSBsaWtlIHRvXG4jIG1hbnVhbGx5IGNvbW1pdCB5b3VyIFIgTWFya2Rvd24gZmlsZXMuXG53Zmxvd19wdWJsaXNoKHVwZGF0ZSA9IFRSVUUpXG5cbndmbG93X3B1Ymxpc2goXCJzaXRlL2luZGV4LlJtZFwiLCBhbGwgPSBUUlVFLCBtZXNzYWdlID0gXCJVcGRhdGUgaW5kZXhcIilcbndmbG93X3B1Ymxpc2goXCJzaXRlL0VTR19Db3ZhcmlhdGVfUHJvY2Vzc2luZy5SbWRcIiwgYWxsID0gVFJVRSwgbWVzc2FnZSA9IFwiVXBkYXRlIEVTRyBjb3ZhcmlhdGUgcHJvY2Vzc2luZ1wiKVxuYGBgIn0= -->
-<pre class="r"><code>#Check if any docs have not yet been published
+<pre><code>
+&lt;!-- rnb-source-end --&gt;
+
+&lt;!-- rnb-chunk-end --&gt;
+
+
+&lt;!-- rnb-text-begin --&gt;
+
+
+
+##Examples for making changes to project website with workflowr
+
+&lt;!-- rnb-text-end --&gt;
+
+
+&lt;!-- rnb-chunk-begin --&gt;
+
+
+&lt;!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxuI0NoZWNrIGlmIGFueSBkb2NzIGhhdmUgbm90IHlldCBiZWVuIHB1Ymxpc2hlZFxud2Zsb3dfc3RhdHVzKCkgXG4jIHNpbmdsZSBmaWxlXG53Zmxvd19wdWJsaXNoKFxcc2l0ZS9maWxlLlJtZFxcLCBcXEluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlXFwpXG4jIEFsbCB0cmFja2VkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGVkaXRlZFxud2Zsb3dfcHVibGlzaChhbGwgPSBUUlVFLCBtZXNzYWdlID0gXFxJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZVxcKVxuIyBBIG5ldyBmaWxlIHBsdXMgYWxsIHRyYWNrZWQgZmlsZXMgdGhhdCBoYXZlIGJlZW4gZWRpdGVkXG53Zmxvd19wdWJsaXNoKFxcc2l0ZS9maWxlLlJtZFxcLCBcXEluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlXFwsIGFsbCA9IFRSVUUpXG4jIE11bHRpcGxlIGZpbGVzXG53Zmxvd19wdWJsaXNoKGMoXFxzaXRlL2ZpbGUuUm1kXFwsIFxcc2l0ZS9hbm90aGVyLlJtZFxcKSxcbiAgICAgICAgICAgICAgXFxJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZVxcKVxuIyBBbGwgUiBNYXJrZG93biBmaWxlcyB0aGF0IHN0YXJ0IHdpdGggdGhlIHBhdHRlcm4gXFxuZXdfXFxcbndmbG93X3B1Ymxpc2goXFxzaXRlL25ld18qUm1kXFwsIFxcSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2VcXClcbiMgUmVwdWJsaXNoIGFsbCBwdWJsaXNoZWQgZmlsZXMgZXZlbiB0aG91Z2ggdGhleSBoYXZlbid0IGJlZW4gbW9kaWZpZWQuXG4jIFVzZWZ1bCBmb3IgY2hhbmdpbmcgc29tZSB1bml2ZXJzYWwgYXNwZWN0IG9mIHRoZSBzaXRlLCBlLmcuIHRoZSB0aGVtZVxuIyBzcGVjaWZpZWQgaW4gX3NpdGUueW1sLlxud2Zsb3dfcHVibGlzaChcXHNpdGUvX3NpdGUueW1sXFwsIFxcc2l0ZSB1cGRhdGVcXCwgcmVwdWJsaXNoID0gVFJVRSlcbiMgUHVibGlzaCBhbGwgcHJldmlvdXNseSBwdWJsaXNoZWQgZmlsZXMgdGhhdCBoYXZlIGJlZW4gY29tbWl0dGVkIG1vcmVcbiMgcmVjZW50bHkgdGhhbiB0aGVpciBjb3JyZXNwb25kaW5nIEhUTUwgZmlsZXMuIFRoaXMgaXMgdXNlZnVsIGlmIHlvdSBsaWtlIHRvXG4jIG1hbnVhbGx5IGNvbW1pdCB5b3VyIFIgTWFya2Rvd24gZmlsZXMuXG53Zmxvd19wdWJsaXNoKHVwZGF0ZSA9IFRSVUUpXG5cbndmbG93X3B1Ymxpc2goXFxzaXRlL2luZGV4LlJtZFxcLCBhbGwgPSBUUlVFLCBtZXNzYWdlID0gXFxVcGRhdGUgaW5kZXhcXClcbndmbG93X3B1Ymxpc2goXFxzaXRlL0VTR19Db3ZhcmlhdGVfUHJvY2Vzc2luZy5SbWRcXCwgYWxsID0gVFJVRSwgbWVzc2FnZSA9IFxcVXBkYXRlIEVTRyBjb3ZhcmlhdGUgcHJvY2Vzc2luZ1xcKVxuYGBgXG5gYGAifQ== --&gt;
+
+```r
+```r
+#Check if any docs have not yet been published
 wflow_status() 
 # single file
-wflow_publish(&quot;site/file.Rmd&quot;, &quot;Informative commit message&quot;)
+wflow_publish(\site/file.Rmd\, \Informative commit message\)
 # All tracked files that have been edited
-wflow_publish(all = TRUE, message = &quot;Informative commit message&quot;)
+wflow_publish(all = TRUE, message = \Informative commit message\)
 # A new file plus all tracked files that have been edited
-wflow_publish(&quot;site/file.Rmd&quot;, &quot;Informative commit message&quot;, all = TRUE)
+wflow_publish(\site/file.Rmd\, \Informative commit message\, all = TRUE)
 # Multiple files
-wflow_publish(c(&quot;site/file.Rmd&quot;, &quot;site/another.Rmd&quot;),
-              &quot;Informative commit message&quot;)
-# All R Markdown files that start with the pattern &quot;new_&quot;
-wflow_publish(&quot;site/new_*Rmd&quot;, &quot;Informative commit message&quot;)
+wflow_publish(c(\site/file.Rmd\, \site/another.Rmd\),
+              \Informative commit message\)
+# All R Markdown files that start with the pattern \new_\
+wflow_publish(\site/new_*Rmd\, \Informative commit message\)
 # Republish all published files even though they haven&#39;t been modified.
 # Useful for changing some universal aspect of the site, e.g. the theme
 # specified in _site.yml.
-wflow_publish(&quot;site/_site.yml&quot;, &quot;site update&quot;, republish = TRUE)
+wflow_publish(\site/_site.yml\, \site update\, republish = TRUE)
 # Publish all previously published files that have been committed more
 # recently than their corresponding HTML files. This is useful if you like to
 # manually commit your R Markdown files.
 wflow_publish(update = TRUE)
 
-wflow_publish(&quot;site/index.Rmd&quot;, all = TRUE, message = &quot;Update index&quot;)
-wflow_publish(&quot;site/ESG_Covariate_Processing.Rmd&quot;, all = TRUE, message = &quot;Update ESG covariate processing&quot;)</code></pre>
+wflow_publish(\site/index.Rmd\, all = TRUE, message = \Update index\)
+wflow_publish(\site/ESG_Covariate_Processing.Rmd\, all = TRUE, message = \Update ESG covariate processing\)</code></pre>
+<p>```</p>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNyZWF0aW5nIFNvaWxJRCBSIFByb2plY3QiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpTdGVwcyB0byBjcmVhdGUgUiBwcm9qZWN0czoNCjEuCU5hdmlnYXRlIHRvIGRpcmVjdG9yeSB0aGF0IHdpbGwgaG9zdCB0aGUgcHJvamVjdCBmb2xkZXIuDQoyLglJbiBSLCBsb2FkIOKAmHJydG9vbHPigJkgYW5kIOKAmHdvcmtmbG93cuKAmQ0KMy4JUnVuIOKAmHJydG9vbHPigJkgY29kZSB0byBjcmVhdGUgcmVzZWFyY2ggY29tcGVuZGl1bToNCmEuCXJydG9vbHM6OnVzZV9jb21wZW5kaXVtKCJteXByb2plY3QgIikNCmIuCXVzZXRoaXM6OnVzZV9taXRfbGljZW5zZShuYW1lID0gIkpvbmF0aGFuIEogTWF5bmFyZCIpDQpjLgl1c2V0aGlzOjp1c2VfZ2l0KCkNCmQuCUNyZWF0ZSBnaXRodWIg4oCYcmVwb+KAmSB0b2tlbiBmb3Ig4oCcbXlwcm9qZWN04oCdDQplLgl1c2V0aGlzOjp1c2VfZ2l0aHViKGF1dGhfdG9rZW4gPSAieHh4eCIsIHByb3RvY29sID0gImh0dHBzIiwgcHJpdmF0ZSA9IEZBTFNFKQ0KZi4JcnJ0b29sczo6dXNlX3JlYWRtZV9ybWQoKQ0KZy4JcnJ0b29sczo6dXNlX2FuYWx5c2lzKCkNCmguCXJlbmFtZSB0aGUg4oCYYW5hbHlzaXPigJkgZm9sZGVyIHRvIOKAmHJlcG9ydOKAmQ0KaS4JcnJ0b29sczo6dXNlX2RvY2tlcmZpbGUoKQ0Kai4JcnJ0b29sczo6dXNlX3RyYXZpcygpDQo0LglSdW4g4oCYd29ya2Zsb3dy4oCZIGNvZGUgdG8gY3JlYXRlIHJlc2VhcmNoIHdlYnNpdGUNCmEuCXdmbG93X3N0YXJ0KCJteXByb2plY3Rfc2l0ZSIpDQpiLgl3Zmxvd19idWlsZCgpIGFuZCB3Zmxvd192aWV3KCkgdG8gYnVpbGQgYW5kIHZpZXcgd2Vic2l0ZQ0KYy4Jd2Zsb3dfcHVibGlzaChjKCJhbmFseXNpcy9pbmRleC5SbWQiLCAiYW5hbHlzaXMvYWJvdXQuUm1kIiwgImFuYWx5c2lzL2xpY2Vuc2UuUm1kIiksICJQdWJsaXNoIHRoZSBpbml0aWFsIGZpbGVzIGZvciBteXByb2plY3QiKQ0KZC4Jd2Zsb3dfc3RhdHVzKCkgdG8gY2hlY2sgaWYgZG9jcyBoYXZlIGJlZW4gcHVibGlzaGVkDQo1LglJbnRlZ3JlYXRlIHJydG9vbHMgZm9sZGVyIGFuZCB3b3JrZmxvdyBmb2xkZXI6DQphLglNb3ZlIGl0ZW1zIGZyb20gIm15cHJvamVjdF9zaXRlIiB0byAibXlwcm9qZWN0ICINCjYuCUNvbW1pdCBjaGFuZ2VzIHdpdGggR2l0IGFuZCBwdXNoIHRvIEdpdEh1Yi4gQWxsIGZ1dHVyZSBjaGFuZ2VzIGNhbiBiZSBwdXNoZWQgdG8NCg0KIyBNb2RpZnkgdGhpcyBzZWN0aW9uIGZvciBlYWNoIG5ldyBwcm9qZWN0DQpgYGB7cn0NCiMgc2V0IHByb2plY3QgbmFtZSBhbmQgcGF0aA0KbmFtZSA8LSAiSVJBIg0KcGF0aCA8LSAiQzovUl9Ecml2ZS9EYXRhX0ZpbGVzL0xQS1NfRGF0YS9SX1Byb2plY3RzL0lSQSINCmBgYA0KDQpgYGB7cn0NCiMgc2V0IHdvcmtmbG93ciBuYW1lIGFuZCBwYXRoDQp3ZmxyX25hbWUgPC0gcGFzdGUwKG5hbWUsICJfc2l0ZSIpDQp3ZmxyX3BhdGggPC0gcGFzdGUwKHBhdGgsICIvIiwgd2Zscl9uYW1lKQ0KYGBgDQoNCmBgYHtyfQ0KbGlicmFyeShycnRvb2xzKQ0KbGlicmFyeSh3b3JrZmxvd3IpDQpgYGANCg0KIyBBZGQgYXV0aF90b2tlbiBmb3IgcHJvamVjdA0KDQpgYGB7cn0NCiNzZXR3ZChwYXRoKQ0KcnJ0b29sczo6dXNlX2NvbXBlbmRpdW0obmFtZSkNCnVzZXRoaXM6OnVzZV9taXRfbGljZW5zZShuYW1lID0gIkpvbmF0aGFuIEogTWF5bmFyZCIpDQp1c2V0aGlzOjp1c2VfZ2l0KCkNCg0KI0NyZWF0ZSBnaXRodWIg4oCYcmVwb+KAmSB0b2tlbiBmb3Ig4oCcbXlwcm9qZWN04oCdDQojIGNyZWF0ZSB0b2tlbg0KdXNldGhpczo6Y3JlYXRlX2dpdGh1Yl90b2tlbigpDQojIHNldCB0b2tlbiBpbiBzdG9yYWdlDQpnaXRjcmVkczo6Z2l0Y3JlZHNfc2V0KCkNCnVzZXRoaXM6OnVzZV9naXRodWIocHJvdG9jb2wgPSAiaHR0cHMiLCBwcml2YXRlID0gRkFMU0UpDQoNCnJydG9vbHM6OnVzZV9yZWFkbWVfcm1kKHBrZyA9IHBhdGgsIHJlbmRlcl9yZWFkbWUgPSBUUlVFKQ0KcnJ0b29sczo6dXNlX2FuYWx5c2lzKHBhdGgpDQojcmVuYW1lIHRoZSDigJhhbmFseXNpc+KAmSBmb2xkZXIgdG8g4oCYcmVwb3J04oCZDQpycnRvb2xzOjp1c2VfZG9ja2VyZmlsZShwYXRoKQ0KcnJ0b29sczo6dXNlX3RyYXZpcyhwYXRoKQ0KYGBgDQoNCiMgUnVuIHdvcmtmbG93ciBjb2RlIGFzIGNodW5rDQpgYGB7cn0NCiNSdW4g4oCYd29ya2Zsb3dy4oCZIGNvZGUgdG8gY3JlYXRlIHJlc2VhcmNoIHdlYnNpdGUNCndmbG93X3N0YXJ0KHdmbHJfcGF0aCwgZ2l0ID0gRkFMU0UpDQp3Zmxvd19idWlsZCgpICN0byBidWlsZCAgd2Vic2l0ZQ0Kd2Zsb3dfdmlldygpICAjdmlldyB3ZWJzaXRlDQpgYGANCg0KIyBQZXJmb3JtIHRoZXNlIHN0ZXBzIGZvciB3b3JrZmxvd3Igc3ViLWZvbGRlcg0KICAxLiByZW5hbWUgJ2FuYWx5c2lzJyB0byAnc2l0ZScNCiAgMi4gcmVuYW1lICJzaXRlL2Fib3V0LlJtZCIgdG8gInNpdGUvY29kZS5SbWQiDQogIDIuIGNyZWF0ZSBuZXcgUm1hcmtkb3duIGZpbGUgInNpdGUvZGF0YS5SbWQiDQoNCiMgUnVuIHdvcmtmbG93ciBjb2RlIGFzIGNodW5rDQpgYGB7cn0NCnNldHdkKHdmbHJfcGF0aCkNCndmbG93X3B1Ymxpc2goYygic2l0ZS9pbmRleC5SbWQiLCAic2l0ZS9jb2RlLlJtZCIsICJzaXRlL2RhdGEuUm1kIiwgInNpdGUvbGljZW5zZS5SbWQiKSwgIlB1Ymxpc2ggdGhlIGluaXRpYWwgZmlsZXMgZm9yIG15cHJvamVjdCIpDQp3Zmxvd19zdGF0dXMoKSAjdG8gY2hlY2sgaWYgZG9jcyBoYXZlIGJlZW4gcHVibGlzaGVkDQpgYGANCg0KI0ludGVncmVhdGUgcnJ0b29scyBmb2xkZXIgYW5kIHdvcmtmbG93ciBmb2xkZXI6DQpDaGFuZ2VzIHRvIHJydG9vbHMgZm9sZGVyIChwcm9qZWN0IGZvbGRlcik6DQogIDEuIGVyYXNlIHJydG9vbHMgLmdpdGlnbm9yZSBhbmQgLnByb2ZpbGUNCiAgMi4gcmVuYW1lIGFuYWx5c2lzIGZvbGRlciB0byAncmVzdWx0cycNCiAgMy4gbW92ZSByZXN1bHRzL2RhdGEgZmlsZXMgdG8gZGF0YS8NCiAgNC4gZXJhc2UgUi8gZm9sZGVyDQogIDUuIENyZWF0ZSAncHJval9zZXR1cCcgZm9sZGVyIGFuZCBzYXZlIFByb2plY3RfY3JlYXRpb24uUm1kIHNjcmlwdCBpbiB0aGlzIGZvbGRlcg0KICA2LiBtb3ZlIFJFQURNRS5tZCBpbiAvb3V0cHV0IGZvbGRlciB0byBkYXRhL2Rlcml2ZWQvIGFuZCBlcmFzZSAvb3V0cHV0DQoNCkNoYW5nZXMgdG8gd29ya2Zsb3dyIGZvbGRlciAoc3ViIHByb2plY3QgZm9sZGVyKToNCiAgMS4gZXJhc2Ugd29ya2Zsb3dyIFJFQURNRS5SbWQNCiAgMi4gbW92ZSBSRUFETUUuUm1kIGluIGRhdGEgZm9sZGVyIHRvIHJydG9vbHMgZGF0YSBmb2xkZXIgYW5kIGVyYXNlIGRhdGEgZm9sZGVyDQogIDMuIGVyYXNlIHdvcmtmbG93ciBScHJvaiBmaWxlDQogIDQuIG1vdmUgYWxsIGZpbGVzIGZyb20gd29ya2Zsb3dyIGZvbGRlciB0byBtYWluIHByb2plY3QgZm9sZGVyLCB0aGVuIGVyYXNlIHdvcmtmbG93ciBmb2xkZXINCiAgNS4gYWRkICdwcm9qX3NldHVwLycgdG8gLmdpdGlnbm9yZQ0KDQpDb21taXQgY2hhbmdlcyB3aXRoIEdpdCBhbmQgcHVzaCB0byBHaXRIdWIuDQpJbiBHaXRodWIsIHNldCBnaXRodWIgcHJvamVjdCBzaXRlIHRvIC9kb2NzIGluIHNldHRpbmdzDQoNCg0KDQpgYGB7cn0NCnNldHdkKHBhdGgpDQp3Zmxvd19wdWJsaXNoKGMoInNpdGUvaW5kZXguUm1kIiwgInNpdGUvY29kZS5SbWQiLCAic2l0ZS9kYXRhLlJtZCIsICJzaXRlL2xpY2Vuc2UuUm1kIiksICJQdWJsaXNoIHRoZSBpbml0aWFsIGZpbGVzIGZvciBteXByb2plY3QiKQ0Kd2Zsb3dfc3RhdHVzKCkgI3RvIGNoZWNrIGlmIGRvY3MgaGF2ZSBiZWVuIHB1Ymxpc2hlZA0KYGBgDQoNCg0KIyNFeGFtcGxlcyBmb3IgbWFraW5nIGNoYW5nZXMgdG8gcHJvamVjdCB3ZWJzaXRlIHdpdGggd29ya2Zsb3dyDQpgYGB7cn0NCiNDaGVjayBpZiBhbnkgZG9jcyBoYXZlIG5vdCB5ZXQgYmVlbiBwdWJsaXNoZWQNCndmbG93X3N0YXR1cygpIA0KIyBzaW5nbGUgZmlsZQ0Kd2Zsb3dfcHVibGlzaCgic2l0ZS9maWxlLlJtZCIsICJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZSIpDQojIEFsbCB0cmFja2VkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGVkaXRlZA0Kd2Zsb3dfcHVibGlzaChhbGwgPSBUUlVFLCBtZXNzYWdlID0gIkluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlIikNCiMgQSBuZXcgZmlsZSBwbHVzIGFsbCB0cmFja2VkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGVkaXRlZA0Kd2Zsb3dfcHVibGlzaCgic2l0ZS9maWxlLlJtZCIsICJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZSIsIGFsbCA9IFRSVUUpDQojIE11bHRpcGxlIGZpbGVzDQp3Zmxvd19wdWJsaXNoKGMoInNpdGUvZmlsZS5SbWQiLCAic2l0ZS9hbm90aGVyLlJtZCIpLA0KICAgICAgICAgICAgICAiSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2UiKQ0KIyBBbGwgUiBNYXJrZG93biBmaWxlcyB0aGF0IHN0YXJ0IHdpdGggdGhlIHBhdHRlcm4gIm5ld18iDQp3Zmxvd19wdWJsaXNoKCJzaXRlL25ld18qUm1kIiwgIkluZm9ybWF0aXZlIGNvbW1pdCBtZXNzYWdlIikNCiMgUmVwdWJsaXNoIGFsbCBwdWJsaXNoZWQgZmlsZXMgZXZlbiB0aG91Z2ggdGhleSBoYXZlbid0IGJlZW4gbW9kaWZpZWQuDQojIFVzZWZ1bCBmb3IgY2hhbmdpbmcgc29tZSB1bml2ZXJzYWwgYXNwZWN0IG9mIHRoZSBzaXRlLCBlLmcuIHRoZSB0aGVtZQ0KIyBzcGVjaWZpZWQgaW4gX3NpdGUueW1sLg0Kd2Zsb3dfcHVibGlzaCgic2l0ZS9fc2l0ZS55bWwiLCAic2l0ZSB1cGRhdGUiLCByZXB1Ymxpc2ggPSBUUlVFKQ0KIyBQdWJsaXNoIGFsbCBwcmV2aW91c2x5IHB1Ymxpc2hlZCBmaWxlcyB0aGF0IGhhdmUgYmVlbiBjb21taXR0ZWQgbW9yZQ0KIyByZWNlbnRseSB0aGFuIHRoZWlyIGNvcnJlc3BvbmRpbmcgSFRNTCBmaWxlcy4gVGhpcyBpcyB1c2VmdWwgaWYgeW91IGxpa2UgdG8NCiMgbWFudWFsbHkgY29tbWl0IHlvdXIgUiBNYXJrZG93biBmaWxlcy4NCndmbG93X3B1Ymxpc2godXBkYXRlID0gVFJVRSkNCg0Kd2Zsb3dfcHVibGlzaCgic2l0ZS9pbmRleC5SbWQiLCBhbGwgPSBUUlVFLCBtZXNzYWdlID0gIlVwZGF0ZSBpbmRleCIpDQp3Zmxvd19wdWJsaXNoKCJzaXRlL0VTR19Db3ZhcmlhdGVfUHJvY2Vzc2luZy5SbWQiLCBhbGwgPSBUUlVFLCBtZXNzYWdlID0gIlVwZGF0ZSBFU0cgY292YXJpYXRlIHByb2Nlc3NpbmciKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQ3JlYXRpbmcgU29pbElEIFIgUHJvamVjdCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKU3RlcHMgdG8gY3JlYXRlIFIgcHJvamVjdHM6CjEuCU5hdmlnYXRlIHRvIGRpcmVjdG9yeSB0aGF0IHdpbGwgaG9zdCB0aGUgcHJvamVjdCBmb2xkZXIuCjIuCUluIFIsIGxvYWQg4oCYcnJ0b29sc+KAmSBhbmQg4oCYd29ya2Zsb3dy4oCZCjMuCVJ1biDigJhycnRvb2xz4oCZIGNvZGUgdG8gY3JlYXRlIHJlc2VhcmNoIGNvbXBlbmRpdW06CmEuCXJydG9vbHM6OnVzZV9jb21wZW5kaXVtKCJteXByb2plY3QgIikKYi4JdXNldGhpczo6dXNlX21pdF9saWNlbnNlKG5hbWUgPSAiSm9uYXRoYW4gSiBNYXluYXJkIikKYy4JdXNldGhpczo6dXNlX2dpdCgpCmQuCUNyZWF0ZSBnaXRodWIg4oCYcmVwb+KAmSB0b2tlbiBmb3Ig4oCcbXlwcm9qZWN04oCdCmUuCXVzZXRoaXM6OnVzZV9naXRodWIoYXV0aF90b2tlbiA9ICJ4eHh4IiwgcHJvdG9jb2wgPSAiaHR0cHMiLCBwcml2YXRlID0gRkFMU0UpCmYuCXJydG9vbHM6OnVzZV9yZWFkbWVfcm1kKCkKZy4JcnJ0b29sczo6dXNlX2FuYWx5c2lzKCkKaC4JcmVuYW1lIHRoZSDigJhhbmFseXNpc+KAmSBmb2xkZXIgdG8g4oCYcmVwb3J04oCZCmkuCXJydG9vbHM6OnVzZV9kb2NrZXJmaWxlKCkKai4JcnJ0b29sczo6dXNlX3RyYXZpcygpCjQuCVJ1biDigJh3b3JrZmxvd3LigJkgY29kZSB0byBjcmVhdGUgcmVzZWFyY2ggd2Vic2l0ZQphLgl3Zmxvd19zdGFydCgibXlwcm9qZWN0X3NpdGUiKQpiLgl3Zmxvd19idWlsZCgpIGFuZCB3Zmxvd192aWV3KCkgdG8gYnVpbGQgYW5kIHZpZXcgd2Vic2l0ZQpjLgl3Zmxvd19wdWJsaXNoKGMoImFuYWx5c2lzL2luZGV4LlJtZCIsICJhbmFseXNpcy9hYm91dC5SbWQiLCAiYW5hbHlzaXMvbGljZW5zZS5SbWQiKSwgIlB1Ymxpc2ggdGhlIGluaXRpYWwgZmlsZXMgZm9yIG15cHJvamVjdCIpCmQuCXdmbG93X3N0YXR1cygpIHRvIGNoZWNrIGlmIGRvY3MgaGF2ZSBiZWVuIHB1Ymxpc2hlZAo1LglJbnRlZ3JlYXRlIHJydG9vbHMgZm9sZGVyIGFuZCB3b3JrZmxvdyBmb2xkZXI6CmEuCU1vdmUgaXRlbXMgZnJvbSAibXlwcm9qZWN0X3NpdGUiIHRvICJteXByb2plY3QgIgo2LglDb21taXQgY2hhbmdlcyB3aXRoIEdpdCBhbmQgcHVzaCB0byBHaXRIdWIuIEFsbCBmdXR1cmUgY2hhbmdlcyBjYW4gYmUgcHVzaGVkIHRvCgojIE1vZGlmeSB0aGlzIHNlY3Rpb24gZm9yIGVhY2ggbmV3IHByb2plY3QKYGBge3J9CiMgc2V0IHByb2plY3QgbmFtZSBhbmQgcGF0aApuYW1lIDwtICJJUkEiCnBhdGggPC0gIkM6L1JfRHJpdmUvRGF0YV9GaWxlcy9MUEtTX0RhdGEvUl9Qcm9qZWN0cy9JUkEiCmBgYAoKYGBge3J9CiMgc2V0IHdvcmtmbG93ciBuYW1lIGFuZCBwYXRoCndmbHJfbmFtZSA8LSBwYXN0ZTAobmFtZSwgIl9zaXRlIikKd2Zscl9wYXRoIDwtIHBhc3RlMChwYXRoLCAiLyIsIHdmbHJfbmFtZSkKYGBgCgpgYGB7cn0KbGlicmFyeShycnRvb2xzKQpsaWJyYXJ5KHdvcmtmbG93cikKYGBgCgojIEFkZCBhdXRoX3Rva2VuIGZvciBwcm9qZWN0CgpgYGB7cn0KI3NldHdkKHBhdGgpCnJydG9vbHM6OnVzZV9jb21wZW5kaXVtKG5hbWUpCnVzZXRoaXM6OnVzZV9taXRfbGljZW5zZSgpCnVzZXRoaXM6OnVzZV9naXQoKQoKI0NyZWF0ZSBnaXRodWIg4oCYcmVwb+KAmSB0b2tlbiBmb3Ig4oCcbXlwcm9qZWN04oCdCiMgY3JlYXRlIHRva2VuCnVzZXRoaXM6OmNyZWF0ZV9naXRodWJfdG9rZW4oKQojIHNldCB0b2tlbiBpbiBzdG9yYWdlCmdpdGNyZWRzOjpnaXRjcmVkc19zZXQoKQp1c2V0aGlzOjp1c2VfZ2l0aHViKHByb3RvY29sID0gImh0dHBzIiwgcHJpdmF0ZSA9IEZBTFNFKQoKcnJ0b29sczo6dXNlX3JlYWRtZV9ybWQocGtnID0gcGF0aCwgcmVuZGVyX3JlYWRtZSA9IFRSVUUpCnJydG9vbHM6OnVzZV9hbmFseXNpcyhwYXRoKQojcmVuYW1lIHRoZSDigJhhbmFseXNpc+KAmSBmb2xkZXIgdG8g4oCYcmVwb3J04oCZCnJydG9vbHM6OnVzZV9kb2NrZXJmaWxlKHBhdGgpCmBgYAoKIyBSdW4gd29ya2Zsb3dyIGNvZGUgYXMgY2h1bmsKYGBge3J9CiNSdW4g4oCYd29ya2Zsb3dy4oCZIGNvZGUgdG8gY3JlYXRlIHJlc2VhcmNoIHdlYnNpdGUKd2Zsb3dfc3RhcnQod2Zscl9wYXRoLCBnaXQgPSBGQUxTRSkKd2Zsb3dfYnVpbGQoKSAjdG8gYnVpbGQgIHdlYnNpdGUKd2Zsb3dfdmlldygpICAjdmlldyB3ZWJzaXRlCmBgYAoKIyBQZXJmb3JtIHRoZXNlIHN0ZXBzIGZvciB3b3JrZmxvd3Igc3ViLWZvbGRlcgogIDEuIHJlbmFtZSAnYW5hbHlzaXMnIHRvICdzaXRlJwogIDIuIHJlbmFtZSAic2l0ZS9hYm91dC5SbWQiIHRvICJzaXRlL2NvZGUuUm1kIgogIDIuIGNyZWF0ZSBuZXcgUm1hcmtkb3duIGZpbGUgInNpdGUvZGF0YS5SbWQiCgojIFJ1biB3b3JrZmxvd3IgY29kZSBhcyBjaHVuawpgYGB7cn0Kc2V0d2Qod2Zscl9wYXRoKQp3Zmxvd19wdWJsaXNoKGMoInNpdGUvaW5kZXguUm1kIiwgInNpdGUvY29kZS5SbWQiLCAic2l0ZS9kYXRhLlJtZCIsICJzaXRlL2xpY2Vuc2UuUm1kIiksICJQdWJsaXNoIHRoZSBpbml0aWFsIGZpbGVzIGZvciBteXByb2plY3QiKQp3Zmxvd19zdGF0dXMoKSAjdG8gY2hlY2sgaWYgZG9jcyBoYXZlIGJlZW4gcHVibGlzaGVkCmBgYAoKI0ludGVncmVhdGUgcnJ0b29scyBmb2xkZXIgYW5kIHdvcmtmbG93ciBmb2xkZXI6CkNoYW5nZXMgdG8gcnJ0b29scyBmb2xkZXIgKHByb2plY3QgZm9sZGVyKToKICAxLiBlcmFzZSBycnRvb2xzIC5naXRpZ25vcmUgYW5kIC5wcm9maWxlCiAgMi4gCiAgMy4gbW92ZSByZXBvcnQvZGF0YSBmaWxlcyB0byBkYXRhLwogIDQuIGVyYXNlIFIvIGZvbGRlcgogIDUuIENyZWF0ZSAncHJval9zZXR1cCcgZm9sZGVyIGFuZCBzYXZlIFByb2plY3RfY3JlYXRpb24uUm1kIHNjcmlwdCBpbiB0aGlzIGZvbGRlcgoKCkNoYW5nZXMgdG8gd29ya2Zsb3dyIGZvbGRlciAoc3ViIHByb2plY3QgZm9sZGVyKToKICAxLiBlcmFzZSB3b3JrZmxvd3IgUkVBRE1FLlJtZAogIDIuIG1vdmUgUkVBRE1FLlJtZCBpbiBkYXRhIGZvbGRlciB0byBycnRvb2xzIGRhdGEgZm9sZGVyIGFuZCBlcmFzZSBkYXRhIGZvbGRlcgogIDMuIGVyYXNlIHdvcmtmbG93ciBScHJvaiBmaWxlCiAgNC4gbW92ZSBSRUFETUUubWQgaW4gL291dHB1dCBmb2xkZXIgdG8gZGF0YS9kZXJpdmVkLyBhbmQgZXJhc2UgL291dHB1dCAgCiAgNS4gbW92ZSBhbGwgZmlsZXMgZnJvbSB3b3JrZmxvd3IgZm9sZGVyIHRvIG1haW4gcHJvamVjdCBmb2xkZXIsIHRoZW4gZXJhc2Ugd29ya2Zsb3dyIGZvbGRlcgogIDYuIGFkZCAncHJval9zZXR1cC8nIHRvIC5naXRpZ25vcmUKCgpDb21taXQgY2hhbmdlcyB3aXRoIEdpdCBhbmQgcHVzaCB0byBHaXRIdWIuCkluIEdpdGh1Yiwgc2V0IGdpdGh1YiBwcm9qZWN0IHNpdGUgdG8gL2RvY3MgaW4gc2V0dGluZ3MKCgoKYGBge3J9CnNldHdkKHBhdGgpCndmbG93X3B1Ymxpc2goYygic2l0ZS9pbmRleC5SbWQiLCAic2l0ZS9jb2RlLlJtZCIsICJzaXRlL2RhdGEuUm1kIiwgInNpdGUvbGljZW5zZS5SbWQiKSwgIlB1Ymxpc2ggdGhlIGluaXRpYWwgZmlsZXMgZm9yIG15cHJvamVjdCIpCndmbG93X3N0YXR1cygpICN0byBjaGVjayBpZiBkb2NzIGhhdmUgYmVlbiBwdWJsaXNoZWQKYGBgCgoKIyNFeGFtcGxlcyBmb3IgbWFraW5nIGNoYW5nZXMgdG8gcHJvamVjdCB3ZWJzaXRlIHdpdGggd29ya2Zsb3dyCmBgYHtyfQojQ2hlY2sgaWYgYW55IGRvY3MgaGF2ZSBub3QgeWV0IGJlZW4gcHVibGlzaGVkCndmbG93X3N0YXR1cygpIAojIHNpbmdsZSBmaWxlCndmbG93X3B1Ymxpc2goInNpdGUvZmlsZS5SbWQiLCAiSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2UiKQojIEFsbCB0cmFja2VkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGVkaXRlZAp3Zmxvd19wdWJsaXNoKGFsbCA9IFRSVUUsIG1lc3NhZ2UgPSAiSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2UiKQojIEEgbmV3IGZpbGUgcGx1cyBhbGwgdHJhY2tlZCBmaWxlcyB0aGF0IGhhdmUgYmVlbiBlZGl0ZWQKd2Zsb3dfcHVibGlzaCgic2l0ZS9maWxlLlJtZCIsICJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZSIsIGFsbCA9IFRSVUUpCiMgTXVsdGlwbGUgZmlsZXMKd2Zsb3dfcHVibGlzaChjKCJzaXRlL2ZpbGUuUm1kIiwgInNpdGUvYW5vdGhlci5SbWQiKSwKICAgICAgICAgICAgICAiSW5mb3JtYXRpdmUgY29tbWl0IG1lc3NhZ2UiKQojIEFsbCBSIE1hcmtkb3duIGZpbGVzIHRoYXQgc3RhcnQgd2l0aCB0aGUgcGF0dGVybiAibmV3XyIKd2Zsb3dfcHVibGlzaCgic2l0ZS9uZXdfKlJtZCIsICJJbmZvcm1hdGl2ZSBjb21taXQgbWVzc2FnZSIpCiMgUmVwdWJsaXNoIGFsbCBwdWJsaXNoZWQgZmlsZXMgZXZlbiB0aG91Z2ggdGhleSBoYXZlbid0IGJlZW4gbW9kaWZpZWQuCiMgVXNlZnVsIGZvciBjaGFuZ2luZyBzb21lIHVuaXZlcnNhbCBhc3BlY3Qgb2YgdGhlIHNpdGUsIGUuZy4gdGhlIHRoZW1lCiMgc3BlY2lmaWVkIGluIF9zaXRlLnltbC4Kd2Zsb3dfcHVibGlzaCgic2l0ZS9fc2l0ZS55bWwiLCAic2l0ZSB1cGRhdGUiLCByZXB1Ymxpc2ggPSBUUlVFKQojIFB1Ymxpc2ggYWxsIHByZXZpb3VzbHkgcHVibGlzaGVkIGZpbGVzIHRoYXQgaGF2ZSBiZWVuIGNvbW1pdHRlZCBtb3JlCiMgcmVjZW50bHkgdGhhbiB0aGVpciBjb3JyZXNwb25kaW5nIEhUTUwgZmlsZXMuIFRoaXMgaXMgdXNlZnVsIGlmIHlvdSBsaWtlIHRvCiMgbWFudWFsbHkgY29tbWl0IHlvdXIgUiBNYXJrZG93biBmaWxlcy4Kd2Zsb3dfcHVibGlzaCh1cGRhdGUgPSBUUlVFKQoKd2Zsb3dfcHVibGlzaCgic2l0ZS9pbmRleC5SbWQiLCBhbGwgPSBUUlVFLCBtZXNzYWdlID0gIlVwZGF0ZSBpbmRleCIpCndmbG93X3B1Ymxpc2goInNpdGUvRVNHX0NvdmFyaWF0ZV9Qcm9jZXNzaW5nLlJtZCIsIGFsbCA9IFRSVUUsIG1lc3NhZ2UgPSAiVXBkYXRlIEVTRyBjb3ZhcmlhdGUgcHJvY2Vzc2luZyIpCmBgYAoK</div>
 
 
 

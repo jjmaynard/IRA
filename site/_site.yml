@@ -1,0 +1,19 @@
+name: "IRA"
+output_dir: ../docs
+navbar:
+  title: "IRA"
+  left:
+  - text: Overview
+    href: index.html
+  - text: Code
+    href: code.html
+  - text: Data
+    href: data.html
+  - text: License
+    href: license.html
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+    highlight: textmate

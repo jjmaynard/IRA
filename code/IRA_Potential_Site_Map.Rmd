@@ -1,0 +1,221 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Load packages
+```{r}
+#library(leaflet)
+library(sf) # simple features packages for handling vector GIS data
+library(httr) # generic webservice package
+#library(tidyverse) # a suite of packages for data wrangling, transformation, plotting, ...
+library(ows4R) # interface for OGC webservices
+library(here)
+library(DBI)
+library(RSQLite)
+
+#library(tmap)
+library(mapview)
+library(viridis)
+library(lattice)
+library(leafpop)
+```
+
+
+# RaCA points
+```{r}
+raca_gen_loc <- st_as_sf(here("data/raw_data/RaCa_general_location.csv") |> read.csv(), coords = c("Gen_long","Gen_lat"), crs = 4326)
+raca_loc <- st_as_sf(here("data/raw_data/RACA_Location.csv") |> read.csv(), coords = c("Lon","Lat"), crs = 4326)
+
+```
+
+# SPSD pedons
+```{r}
+# use 2018 snapshot since most recent snapshot on LDM has incorrectly formatted 'site_obsdate' field.
+kssl_layers <- st_layers(dsn="C:/R_Drive/Data_Files/LPKS_Data/Data/Soil_Pedon_Databases/NRCS/KSSL/NCSS_Soil_Characterization_Database/NCSS_Soil_Characterization_Database_09_14_2018.gdb")
+
+pedon  <- st_read(dsn="C:/R_Drive/Data_Files/LPKS_Data/Data/Soil_Pedon_Databases/NRCS/KSSL/NCSS_Soil_Characterization_Database/NCSS_Soil_Characterization_Database_09_14_2018.gdb", layer=kssl_layers[[1]][34]) 
+
+pedon  <- st_as_sf(pedon |> dplyr::filter(!is.na(longitude_decimal_degrees), !is.na(latitude_decimal_degrees)), coords = c("longitude_decimal_degrees","latitude_decimal_degrees"), crs = 4326)
+
+pedon$site_obsdate <- lubridate::mdy(pedon$site_obsdate)
+
+pedon <- st_crop(pedon, mlra)
+pedon <- pedon |> dplyr::filter(site_obsdate > "2010-01-01")
+# #wfs_kssl <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/National_Cooperative_Soil_Survey_Soil_Characterization_Map/FeatureServer'
+# url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+# url$path <- paste(url$path, "National_Cooperative_Soil_Survey_Soil_Characterization_Map/FeatureServer/0/query", sep = "/")
+# url$query <- list(where = "1=1",
+#                   outFields = "*",
+#                   returnGeometry = "true",
+#                   f = "geojson")
+# request <- build_url(url)
+# kssl <- st_read(request)
+# 
+# #wfs_nasis <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/NASIS_Pedons/FeatureServer'
+# url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+# url$path <- paste(url$path, "NASIS_Pedons/FeatureServer/0/query", sep = "/")
+# url$query <- list(where = "1=1",
+#                   outFields = "*",
+#                   returnGeometry = "true",
+#                   f = "geojson")
+# request <- build_url(url)
+# nasis <- st_read(request)
+
+# #wfs_scan <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/SCAN_Sites_2021/FeatureServer'
+# url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+# url$path <- paste(url$path, "SCAN_Sites_2021/FeatureServer/0/query", sep = "/")
+# url$query <- list(where = "1=1",
+#                   outFields = "*",
+#                   returnGeometry = "true",
+#                   f = "geojson")
+# request <- build_url(url)
+# scan <- st_read(request)
+```
+
+# Obtain CEAP locations
+```{r}
+wfs_ceap <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services/FY19_CEAP_Watersheds_10_02_19/FeatureServer'
+
+url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+url$path <- paste(url$path, "FY19_CEAP_Watersheds_10_02_19/FeatureServer/0/query", sep = "/")
+url$query <- list(where = "1=1",
+                  outFields = "*",
+                  returnGeometry = "true",
+                  f = "geojson")
+request <- build_url(url)
+
+ceap <- st_read(request)
+
+
+```
+
+# LTAR locations
+```{r}
+LTAR_layers <- st_layers(dsn=here("data/raw_data/LTAR_Standard_GIS_Layers_v2020_pub.gdb"))
+
+ltar_site  <- st_read(dsn=here("data/raw_data/LTAR_Standard_GIS_Layers_v2020_pub.gdb"), layer=LTAR_layers[[1]][2]) 
+ltar_tower  <- st_read(dsn=here("data/raw_data/LTAR_Standard_GIS_Layers_v2020_pub.gdb"), layer=LTAR_layers[[1]][4]) 
+ltar_boundary  <- st_read(dsn=here("data/raw_data/LTAR_Standard_GIS_Layers_v2020_pub.gdb"), layer=LTAR_layers[[1]][5])
+
+
+ltar_legacy_site_boundary  <- st_read(dsn=here("data/raw_data/LTAR_Standard_GIS_Layers_v2020_pub.gdb"), layer=LTAR_layers[[1]][6])
+
+ltar_boundary  <- ltar_boundary  |> st_transform(crs=st_crs(ceap))
+ltar_legacy_site_boundary  <- ltar_legacy_site_boundary  |> st_transform(crs=st_crs(ceap))
+ltar_site  <- ltar_site  |> st_transform(crs=st_crs(ceap))
+
+```
+
+# State/MLRA Boundary
+```{r}
+#wfs_states <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/USA_States_Generalized/FeatureServer'
+url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+url$path <- paste(url$path, "USA_States_Generalized/FeatureServer/0/query", sep = "/")
+url$query <- list(where = "1=1",
+                  outFields = "*",
+                  returnGeometry = "true",
+                  f = "geojson")
+request <- build_url(url)
+states <- st_read(request)
+states <- st_crop(states, mlra)
+
+#wfs_mlra <- 'https://services.arcgis.com/SXbDpmb7xQkk44JV/ArcGIS/rest/services/US_MLRA/FeatureServer'
+url <- parse_url("https://services.arcgis.com/SXbDpmb7xQkk44JV/arcgis/rest/services")
+url$path <- paste(url$path, "US_MLRA/FeatureServer/0/query", sep = "/")
+url$query <- list(where = "1=1",
+                  outFields = "*",
+                  returnGeometry = "true",
+                  f = "geojson")
+request <- build_url(url)
+mlra <- st_read(request)
+```
+
+# mapping
+```{r}
+  mapview(raca_gen_loc,  col.regions = "red",layer.name = "RaCA") +
+  mapview(pedon,  col.regions = "yellow",layer.name = "KSSL") +
+  mapview(ceap, col.regions = "green",layer.name = "CEAP") +
+  mapview(list(ltar_site, ltar_boundary), col.regions = "purple",layer.name = "LTAR") +
+  mapview(mlra,  col.regions = "lightblue",layer.name = "MLRA") 
++
+  mapview(states,   col.regions = "blue",layer.name = "RaCA")
+
+raca_gen_loc <- raca_gen_loc |> dplyr::mutate(sym = 1)
+mapview(x)
+x <- st_geometry(raca_gen_loc)
+mapview(list(raca_gen_loc, ceap, ltar_boundary, ltar_legacy_site_boundary, ltar_site),
+        layer.name = c("RaCA", "CEAP", "LTAR", "LTAR leg", "LTAR Site"))
+
+col_pal <- RColorBrewer::brewer.pal(n = 4, name = "Dark2")
+
+save(states, ceap, ltar_site, pedon, raca_gen_loc, file=here('data/derived_data/IRA_sites.Rdata'))
+
+tmap_mode("view")
+  tm_shape(states) +
+    tm_borders() +
+    tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
+    tm_shape(ceap) +
+    tm_borders() +
+    tm_fill(col="#1B9E77", size=0.3) +
+    tm_shape(ltar_site) +
+    tm_dots(col="#D95F02", size=0.3) +
+    tm_shape(pedon) +
+    tm_dots(col="#7570B3", size=0.02) +
+    tm_shape(raca_gen_loc) +
+    tm_dots(col="#E7298A", size=0.02) +
+
+    #tm_compass() + 
+    #tm_scale_bar(position = c(0.06, 0.05)) +
+    tm_add_legend('fill', 
+	col = c( "#E7298A","#1B9E77", "#D95F02","#7570B3"),
+	border.col = "grey40",
+	size = 1,
+	labels = c('RacA','CEAP','LTAR','KSSL (>2010)'),
+	title="Potential Sampling Areas") +
+    tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE) +
+    tm_view(set.view = c(-99.22, 39.13,  4))
+
+tmap_mode("plot")
+  tm_shape(states) +
+    tm_borders() +
+    tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
+    tm_shape(pedon) +
+    tm_symbols(shape = 21, col='#7570B3', size=0.02) +
+    tm_shape(raca_gen_loc) +
+    tm_symbols(shape = 19, col='#E7298A', size=0.02) +
+    tm_shape(ceap) +
+    tm_borders() +
+    tm_symbols(shape = 24, col='#1B9E77', size=0.3) +
+    tm_shape(ltar_site) +
+    tm_symbols(shape = 23, col='#D95F02', size=0.3) +
+    #tm_compass() + 
+    #tm_scale_bar(position = c(0.06, 0.05)) +
+    tm_add_legend('symbol', shape=c(19,24,23,21), 
+	col = c( '#E7298A','#1B9E77', '#D95F02','#7570B3'),
+	border.col = "grey40",
+	size = 1,
+	labels = c('RacA','CEAP','LTAR','KSSL'),
+	title="Potential Sampling Areas") +
+    tm_layout(main.title = "IRA Sampling", bg.color = "white", legend.outside = TRUE) 
+
+    
+    
+  tm_raster(style = "cont", palette = "-RdYlGn",
+            title = "Elevation (m asl)") +
+  tm_shape(ei_borders) + 
+  tm_borders() +
+  tm_shape(ei_roads) + 
+  tm_lines(lwd = "strokelwd", legend.lwd.show = FALSE) +
+  tm_shape(volcanoes) +
+  tm_symbols(shape = 24, size = "elevation",
+             title.size = "Volcanoes (m asl)") +
+  tm_layout(main.title = "Easter Island",
+            bg.color = "white", legend.outside = TRUE)
+  
+  
+  
+   tm_compass(position = c(0.06, 0.45), color.light = "gray90",
+size = 3)
+```
+
